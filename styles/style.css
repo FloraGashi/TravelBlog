@@ -1,5 +1,5 @@
 #logo {
-    widht: 100px;
+    width: 100px;
     height: 100px;
     margin-top: 10px;
     margin-right: 0px;
@@ -19,6 +19,11 @@ h2 {
     font-style: italic;
     color: #A901DB;
     margin-left: 150px;
+    transition: opacity 2s ease-out
+}
+#logo-id {
+    transform: rotate(780deg)scale(0.5,0.5);
+    transition: 5s;
 }
 
 #city {
@@ -47,3 +52,98 @@ h2 {
     margin-bottom: 300px;
     border-radius: 5px;
 }
+
+.impressum-infos {
+    margin-left: 350px;
+    margin-top: 170px;
+    margin-bottom: 200px;
+    transition: ease-in;
+}
+
+div.css-animation {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: relative;
+    animation-name: beispiel;
+    animation-duration: 3s;
+    animation-delay: 1s;
+}
+
+@keyframes beispiel {
+    0%   {background-color:blueviolet; left:0px; top:0px;}
+    25%  {background-color:bisque; left:400px; top:0px;}
+    50%  {background-color:darksalmon; left:350px; top:150px;}
+    75%  {background-color:mediumslateblue; left:0px; top:200px;}
+    100% {background-color:mediumspringgreen; left:0px; top:0px;}
+}
+
+#eineListe li {
+    padding-left: 7px;
+    margin-bottom: 15px;
+    transition: all .2s ease-in-out;
+    transform: translate3d(0px, 30px, 0);
+    opacity: 0;
+    animation: bounce;
+}
+
+#eineListe li.active {
+    transform: translate3d(0px, 0, 0);
+    opacity: 1;
+
+}
+.my-element {
+    display: inline-block;
+    margin: 0 0.5rem;
+
+    animation: bounce; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 5s; /* don't forget to set a duration! */
+}
+
+.parallax {
+    /* Full height */
+    height: 100%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.text-matterhorn p {
+    font-size: 12pt;
+    font-family: Arial;
+    width: 250px;
+    height: 100px;
+}
+
+.text-yellowstone p {
+    font-size: 11pt;
+    font-family: Arial;
+    width: 200px;
+    height: 100px;
+}
+
+.card-header {
+    background-color: darkgrey;
+}
+
+.card-header p {
+    color: white;
+}
+
+card-footer text-muted {
+    background-color: silver;
+}
+
+card-footer text-muted p {
+    color: white;
+}
+
+navbar navbar-expand-lg navbar-light bg-light {
+    background-color: darkgrey;
+}
+
+
+

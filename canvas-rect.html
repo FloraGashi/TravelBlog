@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas Rectangle</title>
+</head>
+<body>
+
+<script>
+    function rect() {
+        var cv = document.getElementById("meinCanvas");
+        if (cv.getContext) {
+            var ctx = cv.getContext("2d");
+        } else {
+            alert("Fehler");
+        }
+        ctx.fillStyle = "red";
+
+        ctx.beginPath();
+        ctx.moveTo(10, 10);
+        ctx.lineTo(40, 40);
+        ctx.stroke();
+        ctx.fillRect(50, 50, 200, 300);
+    }
+</script>
+
+<body onload="rect();">
+<canvas id="meinCanvas" width="400"
+        height="500"></canvas>
+</body>
+
+</body>
+</html>

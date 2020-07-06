@@ -2,10 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Testfile</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/scroll-activated.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<img alt="logo" src="images/Logo.svg" id="logo">
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+
+<div id="mein-selektor"></div>
+    <h1 class="animate__animated animate__bounce">TravelBlog</h1>
+</div>
+
+<img alt="logo" src="images/Logo.svg" id="logo-id">
 
 <video src="video/Video.mp4" controls autoplay height="320" widht="240">
     Ihr Browser kann dieses Video nicht wiedergeben.
@@ -19,5 +30,163 @@
     <polygon points="100,10 40,198 190,78 10,78 160,198"
              style="fill:mediumpurple;stroke:purple;stroke-width:7;fill-rule:evenodd;" />
 </svg>
+
+<br>
+<p>CSS Animation</p>
+<div class="css-animation"></div>
+
+<div class="my-element">
+    <h1>Ein CSS animierter Titel</h1>
+</div>
+
+<br>
+<p>SVG-Animation</p>
+<svg>
+    <rect x="10" y="10" height="110" width="110"
+          style="stroke:dodgerblue; fill:lightsteelblue">
+        <animateTransform
+                attributeName="transform"
+                begin="0s"
+                dur="30s"
+                type="rotate"
+                from="0 60 60"
+                to="360 30 30"
+                repeatCount="indefinite"
+        />
+    </rect>
+</svg>
+<br>
+<p>SVG Kreis</p>
+<svg width="100" height="100">
+    <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+</svg>
+
+<br>
+<p>Selbst erstellte Bilder</p>
+<img alt="logo" src="images/prizren.JPG" id="prizren" width="300px" height="200px">
+<img alt="logo" src="images/new_york.JPG" id="new-york-pic" width="280px" height="450px">
+
+<br>
+<!--<ol id="eineListe">-->
+<!--    <li  class="active">Eins</li>-->
+<!--    <li class="active">Zwei</li>-->
+<!--    <li class="active">Drei</li>-->
+<!--    <li class="active">Vier</li>-->
+<!--    <li class="active">Fünf</li>-->
+<!--    <li class="active">Sechs</li>-->
+<!--    <li class="active">Sieben</li>-->
+<!--    <li class="active">Acht</li>-->
+<!--    <li class="active">Neun</li>-->
+<!--    <li class="active">Zehn</li>-->
+<!--</ol>-->
+
+<br>
+<p>Audio</p>
+<audio controls>
+    <source src="audio/sound.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+</audio>
+
+<br>
+<p>Canvas</p>
+<script>
+    function draw() {
+        var canvas = document.getElementById("canvas");
+        if (canvas.getContext) {
+            var ctx = canvas.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(90, 90, 70, 0, Math.PI * 2, true);
+    ctx.stroke();
+        }
+    }
+</script>
+
+<body onload="draw();">
+<canvas id="canvas" width="500"
+        height="500"></canvas>
+</body>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Change Color on Scroll</title>
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+<p>Scroll Activated Animation</p>
+<div id="mainContent">
+    <p id="firstBox">Hallo, Willkommen auf meiner Testseite, wo ich verschiedene Animationstechniken angewendet habe.</p>
+    <p>Hier wurde gerade eine Scroll Activated Animation verwendet!</p>
+    <p id="secondBox">Die Farbe des Hintergrundes änder sich, sobald ich sichtbar bin.</p>
+</div>
+
+<script>
+    var isScrolling = false;
+
+    window.addEventListener("scroll", throttleScroll, false);
+
+    function throttleScroll(e) {
+        if (isScrolling == false) {
+            window.requestAnimationFrame(function() {
+                scrolling(e);
+                isScrolling = false;
+            });
+        }
+        isScrolling = true;
+    }
+
+    document.addEventListener("DOMContentLoaded", scrolling, false);
+    var firstBox = document.querySelector("#firstBox");
+    var secondBox = document.querySelector("#secondBox");
+
+    function scrolling(e) {
+
+        if (isPartiallyVisible(firstBox)) {
+            firstBox.classList.add("active");
+
+            document.body.classList.add("colorOne");
+            document.body.classList.remove("colorTwo");
+        } else {
+            document.body.classList.remove("colorOne");
+            document.body.classList.remove("colorTwo");
+        }
+
+        if (isFullyVisible(secondBox)) {
+            secondBox.classList.add("active");
+
+            document.body.classList.add("colorTwo");
+            document.body.classList.remove("colorOne");
+        }
+    }
+
+    function isPartiallyVisible(el) {
+        var elementBoundary = el.getBoundingClientRect();
+
+        var top = elementBoundary.top;
+        var bottom = elementBoundary.bottom;
+        var height = elementBoundary.height;
+
+        return ((top + height >= 0) && (height + window.innerHeight >= bottom));
+    }
+
+    function isFullyVisible(el) {
+        var elementBoundary = el.getBoundingClientRect();
+
+        var top = elementBoundary.top;
+        var bottom = elementBoundary.bottom;
+
+        return ((top >= 0) && (bottom <= window.innerHeight));
+    }
+</script>
+</body>
+
+</html>
+
 </body>
 </html>
